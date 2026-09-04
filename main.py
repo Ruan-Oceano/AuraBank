@@ -23,14 +23,14 @@ def ver_saldo():
 
 def depositar():
     global saldo
-    valor_deposito = float(input("Digite o valor do depósito: "))
+    valor_deposito = float(input("Digite o valor do depósito: R$"))
     saldo += valor_deposito
     print(f'Depósito realizado! Novo valor do saldo: R${saldo}')
     return saldo
 
 def sacar():
     global saldo
-    valor_saque = float(input("Digite o valor do saque: "))
+    valor_saque = float(input("Digite o valor do saque: R$"))
     if valor_saque <= saldo:
         saldo -= valor_saque
         print(f'Saque realizado! Novo valor do saldo: R${saldo}')
