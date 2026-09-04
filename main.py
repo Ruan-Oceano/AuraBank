@@ -4,7 +4,7 @@ numero_conta = ""
 saldo = 0
 
 def cadastrar_cliente():
-    global nome, cpf
+    global nome, cpf, telefone, email
     nome = input("Digite o nome do cliente: ")
     cpf = input("Digite o CPF do cliente: ")
     telefone = input("Digite o número de celular do cliente: ")
