@@ -1,6 +1,8 @@
 nome = ""
 cpf = ""
 numero_conta = ""
+telefone = 0
+email = ""
 saldo = 0
 
 def cadastrar_cliente():
