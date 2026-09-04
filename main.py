@@ -1,4 +1,18 @@
+nome = ""
+cpf = ""
+numero_conta = ""
 saldo = 0
+
+def cadastrar_cliente():
+    global nome, cpf
+    nome = input("Digite o nome do cliente: ")
+    cpf = input("Digite o CPF do cliente: ")
+    
+
+def criar_conta():
+        global numero_conta
+        numero_conta = input("Digite o número da conta: ")
+        print(f"Conta criada com sucesso! Nome: {nome}, CPF: {cpf}, Número da Conta: {numero_conta}")
 
 def ver_saldo():
     print(f'Saldo atual: R${saldo}')
@@ -24,20 +38,26 @@ def sacar():
   
 while True:
     print("\n--- MENU ---")
-    print("1. Ver saldo")
-    print("2. Depositar")
-    print("3. Sacar")
-    print("4. Sair")
+    print("1. Cadastrar cliente")
+    print("2. Criar conta")
+    print("3. Ver saldo")
+    print("4. Depositar")
+    print("5. Sacar")
+    print("6. Sair")
     
     opcao = input("Escolha uma opção: ")
     
     if opcao == "1":
-        ver_saldo()
+        cadastrar_cliente()
     elif opcao == "2":
-        depositar()
+        criar_conta()
     elif opcao == "3":
-        sacar()
+        ver_saldo()
     elif opcao == "4":
+        depositar()
+    elif opcao == "5":
+        sacar()
+    elif opcao == "6":
         print("Saindo...")
         break
     else:
