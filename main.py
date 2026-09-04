@@ -7,6 +7,7 @@ def cadastrar_cliente():
     global nome, cpf
     nome = input("Digite o nome do cliente: ")
     cpf = input("Digite o CPF do cliente: ")
+    print("Cliente cadastrado com sucesso!")
     
 
 def criar_conta():
