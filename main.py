@@ -7,13 +7,15 @@ def cadastrar_cliente():
     global nome, cpf
     nome = input("Digite o nome do cliente: ")
     cpf = input("Digite o CPF do cliente: ")
+    telefone = input("Digite o número de celular do cliente: ")
+    email = input("Digite o email do cliente: ")
     print("Cliente cadastrado com sucesso!")
     
 
 def criar_conta():
         global numero_conta
         numero_conta = input("Digite o número da conta: ")
-        print(f"Conta criada com sucesso! Nome: {nome}, CPF: {cpf}, Número da Conta: {numero_conta}")
+        print(f"Conta criada com sucesso! Nome: {nome}, CPF: {cpf}, Número da Conta: {numero_conta}, Telefone: {telefone}, Email: {email}.")
 
 def ver_saldo():
     print(f'Saldo atual: R${saldo}')
