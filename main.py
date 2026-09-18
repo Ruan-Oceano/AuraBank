@@ -12,7 +12,7 @@ def cadastrar_cliente():
         "nome": nome,
         "cpf": cpf,
         "telefone": telefone,
-        "email: email
+        "email": email
     }
    
     clientes.append(novo_cliente)
@@ -42,9 +42,9 @@ def listar_contas():
         return
     
     for numero_conta, dados in contas.items():
-        print(f'Conta: {numero_conta} | CPF do titular: {dados["cpf_cliente"] | Saldo: R${dados["saldo"]')
+        print(f'Conta: {numero_conta} | CPF do titular: {dados["cpf_cliente"]} | Saldo: R${dados["saldo"]}')
 
-def verSaldo():
+def ver_saldo():
     
     numero_conta = input("Digite o número da conta: ")
     
@@ -79,7 +79,7 @@ def sacar():
                 contas[numero_conta]["saldo"] -= valor_saque
                 print(f'Saque realizado! Novo valor do saldo: R${contas[numero_conta]["saldo"]}')
             else:
-            print("Saldo insuficiente para saque.")
+                print("Saldo insuficiente para saque.")
         else:
             print("O valor do saque tem que ser maior que 0")
     else:
