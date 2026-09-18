@@ -25,7 +25,8 @@ def criar_conta():
     
     if numero_conta in contas:
         print("Já existe uma conta com esse número!")
-
+        return
+    
     cpf_cliente = input("Digite o CPF do titular: ")
 
     contas[numero_conta] = {
