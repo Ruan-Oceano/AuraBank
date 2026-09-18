@@ -1,16 +1,21 @@
-nome = ""
-cpf = ""
-numero_conta = ""
-telefone = 0
-email = ""
-saldo = 0
+clientes = []
+contas = {}
 
 def cadastrar_cliente():
-    global nome, cpf, telefone, email
+    
     nome = input("Digite o nome do cliente: ")
     cpf = input("Digite o CPF do cliente: ")
     telefone = input("Digite o número de celular do cliente: ")
     email = input("Digite o email do cliente: ")
+
+    novo_cliente = {
+        "nome": nome,
+        "cpf": cpf,
+        "telefone": telefone,
+        "email: email
+    }
+   
+    clientes.append(novo_cliente)
     print("Cliente cadastrado com sucesso!")
     
 
