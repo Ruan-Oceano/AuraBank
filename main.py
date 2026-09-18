@@ -93,6 +93,7 @@ while True:
     print("4. Depositar")
     print("5. Sacar")
     print("6. Listar contas")
+    print("7. Sair")
     
     opcao = input("Escolha uma opção: ")
     
