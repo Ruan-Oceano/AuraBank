@@ -51,18 +51,24 @@ def depositar():
         else:
             print("Valor mínimo de depósito não foi atingido")
     else:
-        print("Erro. Conta não encontrada")
+        print("Erro. Conta não encontrada.")
 
 def sacar():
-    global saldo
-    valor_saque = float(input("Digite o valor do saque: R$"))
-    if valor_saque <= saldo:
-        saldo -= valor_saque
-        print(f'Saque realizado! Novo valor do saldo: R${saldo}')
-        return saldo
+    
+    numero_conta = input("Digite o número da conta para saque: ")
+
+    if numero_conta in contas:
+        valor_saque = float(input("Digite o valor do saque: R$"))
+        if valor_saque > 0:
+            if valor_saque <= contas[numero_conta]["saldo"]:
+                contas[numero_conta]["saldo"] -= valor_saque
+                print(f'Saque realizado! Novo valor do saldo: R${contas[numero_conta]["saldo"]}')
+            else:
+            print("Saldo insuficiente para saque.")
+        else:
+            print("O valor do saque tem que ser maior que 0")
     else:
-        print("Saldo insuficiente para saque.")
-        return saldo
+        print("Erro. Conta não encontrada.")
   
 while True:
     print("\n--- MENU ---")
