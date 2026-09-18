@@ -40,11 +40,18 @@ def ver_saldo():
     return saldo
 
 def depositar():
-    global saldo
-    valor_deposito = float(input("Digite o valor do depósito: R$"))
-    saldo += valor_deposito
-    print(f'Depósito realizado! Novo valor do saldo: R${saldo}')
-    return saldo
+    
+    numero_conta = input("Digite o número da conta para depósito: ")
+
+    if numero_conta in contas:
+        valor_deposito = float(input("Digite o valor do depósito: R$"))
+        if valor_depósito > 0:
+            contas[numero_conta]["saldo"] += valor_deposito
+            print(f'Depósito realizado! Novo valor do saldo: R${contas[numero_conta]["saldo"]}')
+        else:
+            print("Valor mínimo de depósito não foi atingido")
+    else:
+        print("Erro. Conta não encontrada")
 
 def sacar():
     global saldo
