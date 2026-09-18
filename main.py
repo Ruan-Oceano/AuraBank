@@ -35,6 +35,15 @@ def criar_conta():
 
     print(f'Conta {numero_conta} criada com sucesso!')
 
+def listar_contas():
+
+    if len(contas) == 0:
+        print("Ainda não existem contas cadastradas.")
+        return
+    
+    for numero_conta, dados in contas.items():
+        print(f'Conta: {numero_conta} | CPF do titular: {dados["cpf_cliente"] | Saldo: R${dados["saldo"]')
+
 def verSaldo():
     
     numero_conta = input("Digite o número da conta: ")
