@@ -92,7 +92,7 @@ while True:
     print("3. Ver saldo")
     print("4. Depositar")
     print("5. Sacar")
-    print("6. Sair")
+    print("6. Listar contas")
     
     opcao = input("Escolha uma opção: ")
     
@@ -106,7 +106,9 @@ while True:
         depositar()
     elif opcao == "5":
         sacar()
-    elif opcao == "6":
+    elif opcao == 6:
+        listar_contas()
+    elif opcao == "7":
         print("Saindo...")
         break
     else:
