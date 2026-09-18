@@ -20,9 +20,20 @@ def cadastrar_cliente():
     
 
 def criar_conta():
-        global numero_conta
-        numero_conta = input("Digite o número da conta: ")
-        print(f"Conta criada com sucesso! Nome: {nome}, CPF: {cpf}, Número da Conta: {numero_conta}, Telefone: {telefone}, Email: {email}.")
+
+    numero_conta = input("Digite o número da conta: ")
+    
+    if numero_conta in contas:
+        print("Já existe uma conta com esse número!")
+
+    cpf_cliente = input("Digite o CPF do titular: ")
+
+    contas[numero_conta] = {
+        "cpf_cliente": cpf_cliente,
+        "saldo": 0.0
+    }
+
+    print(f'Conta {numero_conta} criada com sucesso!')
 
 def ver_saldo():
     print(f'Saldo atual: R${saldo}')
