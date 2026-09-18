@@ -35,9 +35,15 @@ def criar_conta():
 
     print(f'Conta {numero_conta} criada com sucesso!')
 
-def ver_saldo():
-    print(f'Saldo atual: R${saldo}')
-    return saldo
+def verSaldo():
+    
+    numero_conta = input("Digite o número da conta: ")
+    
+    if numero_conta in contas:
+        print(f'CPF do titular: {contas[numero_conta]["cpf_cliente"]}')
+        print(f'Saldo da conta: {contas[numero_conta]["saldo"]}')
+    else:
+        print("Erro. Conta não encontrada.")
 
 def depositar():
     
