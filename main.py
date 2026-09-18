@@ -106,7 +106,7 @@ while True:
         depositar()
     elif opcao == "5":
         sacar()
-    elif opcao == 6:
+    elif opcao == "6":
         listar_contas()
     elif opcao == "7":
         print("Saindo...")
