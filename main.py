@@ -60,7 +60,7 @@ def depositar():
 
     if numero_conta in contas:
         valor_deposito = float(input("Digite o valor do depósito: R$"))
-        if valor_depósito > 0:
+        if valor_deposito > 0:
             contas[numero_conta]["saldo"] += valor_deposito
             print(f'Depósito realizado! Novo valor do saldo: R${contas[numero_conta]["saldo"]}')
         else:
