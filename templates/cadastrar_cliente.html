@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Cadastrar cliente</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Cadastrar cliente</h1>
+
+        <form method="POST">
+
+            <label>Nome:</label>
+            <input type="text" name="nome" required>
+
+            <label>CPF:</label>
+            <input type="text" name="cpf" required>
+
+            <label>Telefone:</label>
+            <input type="text" name="telefone" required>
+
+            <label>Email:</label>
+            <input type="email" name="email" required>
+
+            <button type="submit">
+                Cadastrar
+            </button>
+
+        </form>
+
+        <a href="/">
+            Voltar
+        </a>
+
+    </div>
+
+</body>
+
+</html>

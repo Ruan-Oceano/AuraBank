@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Contas</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Contas cadastradas</h1>
+
+        {% if contas %}
+
+            <table>
+
+                <tr>
+                    <th>Conta</th>
+                    <th>CPF</th>
+                    <th>Saldo</th>
+                </tr>
+
+                {% for numero, dados in contas.items() %}
+
+                <tr>
+
+                    <td>
+                        {{ numero }}
+                    </td>
+
+                    <td>
+                        {{ dados["cpf_cliente"] }}
+                    </td>
+
+                    <td>
+                        R$ {{ "%.2f"|format(dados["saldo"]) }}
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+        {% else %}
+
+            <p>
+                Ainda não existem contas cadastradas.
+            </p>
+
+        {% endif %}
+
+        <a href="/">
+            Voltar
+        </a>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Consultar saldo</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Consultar saldo</h1>
+
+        <form method="POST">
+
+            <label>Número da conta:</label>
+
+            <input
+                type="text"
+                name="numero_conta"
+                required
+            >
+
+            <button type="submit">
+                Consultar
+            </button>
+
+        </form>
+
+
+        {% if conta %}
+
+            <h2>Informações da conta</h2>
+
+            <p>
+                CPF:
+                {{ conta["cpf_cliente"] }}
+            </p>
+
+            <p>
+                Saldo:
+                R$ {{ "%.2f"|format(conta["saldo"]) }}
+            </p>
+
+        {% endif %}
+
+
+        {% if mensagem %}
+            <p>{{ mensagem }}</p>
+        {% endif %}
+
+
+        <a href="/">
+            Voltar
+        </a>
+
+    </div>
+
+</body>
+
+</html>

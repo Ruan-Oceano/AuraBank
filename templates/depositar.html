@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Depósito</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Depositar</h1>
+
+        {% if mensagem %}
+            <p>{{ mensagem }}</p>
+        {% endif %}
+
+        <form method="POST">
+
+            <label>Número da conta:</label>
+
+            <input
+                type="text"
+                name="numero_conta"
+                required
+            >
+
+            <label>Valor:</label>
+
+            <input
+                type="number"
+                name="valor"
+                step="0.01"
+                min="0.01"
+                required
+            >
+
+            <button type="submit">
+                Depositar
+            </button>
+
+        </form>
+
+        <a href="/">
+            Voltar
+        </a>
+
+    </div>
+
+</body>
+
+</html>
