@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect
 
-import AuraBank
+from AuraBank import Banco
+
+banco = Banco()
 
 app = Flask(__name__)
 
@@ -18,7 +20,7 @@ def cadastrar_cliente ():
         telefone = request.form["telefone"]
         email = request.form["email"]
 
-        AuraBank.cadastrar_cliente(
+        banco.cadastrar_cliente(
             nome,
             cpf,
             telefone,
@@ -40,7 +42,7 @@ def criar_conta ():
         numero_conta = request.form["numero_conta"]
         cpf_cliente = request.form["cpf_cliente"]
 
-        sucesso = AuraBank.criar_conta(
+        sucesso = banco.criar_conta(
             numero_conta,
             cpf_cliente
         )
@@ -65,7 +67,7 @@ def saldo():
 
         numero_conta = request.form["numero_conta"]
         
-        conta = AuraBank.ver_saldo(numero_conta)
+        conta = banco.ver_saldo(numero_conta)
 
         if conta is None:
             mensagem = "Conta não encontrada."
@@ -87,7 +89,7 @@ def depositar():
 
         valor = float(request.form["valor"])
 
-        sucesso = AuraBank.depositar(
+        sucesso = banco.depositar(
             numero_conta,
             valor
         )
@@ -115,7 +117,7 @@ def sacar():
 
         valor = float(request.form["valor"])
 
-        sucesso = AuraBank.sacar(
+        sucesso = banco.sacar(
             numero_conta,
             valor
         )
@@ -136,7 +138,7 @@ def listar_contas():
 
     return render_template(
         "contas.html",
-        contas = AuraBank.contas
+        contas = banco.contas
     )
 
 if __name__ == "__main__":

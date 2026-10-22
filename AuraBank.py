@@ -1,66 +1,76 @@
-clientes = []
-contas = {}
+class Cliente:
+    def __init__(self, nome, cpf, telefone, email):
+        self.nome = nome
+        self.cpf = cpf
+        self.telefone = telefone
+        self.email = email
 
+class Conta:
+    def __init__(self, numero_conta, cpf_cliente):
+        self.numero_conta = numero_conta
+        self.cpf_cliente = cpf_cliente
+        self.saldo = 0.0
 
-def cadastrar_cliente(nome, cpf, telefone, email):
+    def depositar(self, valor):
+        if valor <= 0:
+            return False
 
-    novo_cliente = {
-        "nome": nome,
-        "cpf": cpf,
-        "telefone": telefone,
-        "email": email
-    }
+        self.saldo += valor
+        return True
 
-    clientes.append(novo_cliente)
+    def sacar(self, valor):
+        if valor <= 0:
+            return False
 
-    return True
+        self.saldo -= valor
+        return True
 
+    def ver_saldo(self):
+        return self.saldo
 
-def criar_conta(numero_conta, cpf_cliente):
+class Banco:
+    def __init__(self):
+        
+        self.clientes = {}
+        self.contas = {}
 
-    if numero_conta in contas:
-        return False
+    def cadastrar_cliente(self, nome, cpf, telefone, email):
+        if cpf in self.clientes:
+            return False
 
-    contas[numero_conta] = {
-        "cpf_cliente": cpf_cliente,
-        "saldo": 0.0
-    }
+        novo_cliente = Cliente(nome, cpf, telefone, email)
+        self.clientes[cpf] = novo_cliente
 
-    return True
+        return True
 
+    def criar_conta(self, numero_conta, cpf_cliente):
+        if numero_conta in self.contas:
+            return False
 
-def ver_saldo(numero_conta):
+        if cpf_cliente not in self.clientes:
+            return False
 
-    if numero_conta in contas:
-        return contas[numero_conta]
+        nova_conta = Conta(numero_conta, cpf_cliente)
+        self.contas[numero_conta] = nova_conta
 
-    return None
+        return True
 
+    def depositar(self, numero_conta, valor):
+        
+        conta = self.contas.get(numero_conta)
 
-def depositar(numero_conta, valor):
+        if conta is None:
+            return False
 
-    if numero_conta not in contas:
-        return False
+        return conta.depositar(valor)
 
-    if valor <= 0:
-        return False
+    def sacar(self, numero_conta, valor):
+        conta = self.contas.get(numero_conta)
 
-    contas[numero_conta]["saldo"] += valor
+        if conta is None:
+            return False
 
-    return True
+        return conta.sacar(valor)
 
-
-def sacar(numero_conta, valor):
-
-    if numero_conta not in contas:
-        return False
-
-    if valor <= 0:
-        return False
-
-    if valor > contas[numero_conta]["saldo"]:
-        return False
-
-    contas[numero_conta]["saldo"] -= valor
-
-    return True
+    def ver_saldo(self, numero_conta):
+        return self.contas.get(numero_conta)
