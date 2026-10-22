@@ -19,7 +19,7 @@ class Conta:
         return True
 
     def sacar(self, valor):
-        if valor <= 0:
+        if valor <= 0 or valor > self.saldo:
             return False
 
         self.saldo -= valor
